@@ -56,7 +56,27 @@ class GameBoard(tk.Frame):
 
 
 if __name__ == "__main__":
+    def take_input():
+        """Accepts the size of the chess board"""
+        while True:
+            try:
+                size = int(input('What is the size of the chessboard? n = \n'))
+                if size == 1:
+                    print("Trivial solution, choose a board size of atleast 4")
+                if size <= 3:
+                    print("Enter a value such that size>=4")
+                    continue
+                return size
+            except ValueError:
+                print("Invalid value entered. Enter again")
 
+
+    def get_board(size):
+        """Returns an n by n board"""
+        board = [0] * size
+        for ix in range(size):
+            board[ix] = [0] * size
+        return board
 
     #each time get a new column to check the safety of it's left side of the row and -              -
     def is_safe(board, row, col, size):                                             #  -          -
@@ -131,15 +151,8 @@ if __name__ == "__main__":
             BQMEFPigAsoRBQM1BGLjRIiOGSxWBCmToCCMOXSW2HCBo8qWDQcvMMkzCNCbHQga/qMgAYIDBQZU
             yxYYEAA7
         '''
-    size = 8
-    board = [[0, 0, 0, 0, 0, 0, 0, 0],
-             [0, 0, 0, 0, 0, 0, 0, 0],
-             [0, 0, 0, 0, 0, 0, 0, 0],
-             [0, 0, 0, 0, 0, 0, 0, 0],
-             [0, 0, 0, 0, 0, 0, 0, 0],
-             [0, 0, 0, 0, 0, 0, 0, 0],
-             [0, 0, 0, 0, 0, 0, 0, 0],
-             [0, 0, 0, 0, 0, 0, 0, 0]] #to build a matrix 8*8 of 0's
+    size = take_input()
+    board = get_board(size)
     solutions = []
     solve(board, 0, size)
     s = size
