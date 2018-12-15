@@ -149,7 +149,7 @@ if __name__ == "__main__":
     Queen = tk.PhotoImage(data=imagedata)
     for _ in range(size):
         for x in range(size):
-            if solutions[1][_][x] == 1:
+            if solutions[0][_][x] == 1:
                 b.addpiece("Queen"+str(x),Queen ,_, x)
 
     print("Total solutions = {}".format(len(solutions)))
