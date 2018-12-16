@@ -61,8 +61,7 @@ if __name__ == "__main__":
         while True:
             try:
                 size = int(input('What is the size of the chessboard? n = \n'))
-                if size == 1:
-                    print("Trivial solution, choose a board size of atleast 4")
+
                 if size <= 3:
                     print("Enter a value such that size>=4")
                     continue
@@ -117,11 +116,11 @@ if __name__ == "__main__":
                 board[i][col] = 1
                 if col == size - 1:
                     add_solution(board)
-                    board[i][col] = 0
+                    board[i][col] = 0 #to use it again
                     return
                 solve(board, col + 1, size)
                 # backtrack
-                board[i][col] = 0
+                board[i][col] = 0 #to use it again
 
     def add_solution(board):
         """Saves the board state to the global variable 'solutions'"""
@@ -168,5 +167,3 @@ if __name__ == "__main__":
     print("Total solutions = {}".format(len(solutions)))
 
     root.mainloop()
-
-
