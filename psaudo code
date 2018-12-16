@@ -1,0 +1,45 @@
+Take_input():
+	Loop
+		If   Input <4 then:
+			Print ”Error atleast 4 for size”  goto Loop
+		Else
+		Size := Input
+	Return Size
+Create_board(Size):
+	Board :=[0] * Size
+	X := 0
+	Repeat until x  = Size
+		Board[x]  = [0] *Size to creat matrix size * size of 0’s
+		Increment x by 1 and loop
+	Return Size 	
+Is_Safe(board , row , column , size):
+Y+=0
+Repeat  until Y = column :
+Check if left side of the same row safe board [row][Y] != notsafe
+Increment Y by 1 goto Repeat
+Y := column
+X :=row
+Repeat until Y =-1  or  X =-1 :
+	if	Board[x][y] == notsafe then :
+		return false
+	Decrement x ,y by 1 and repeat
+Y:=column
+X:=row
+Repeat until x < size and y>=0 
+If board[x][y] ==notsafe
+Return false
+Increment x , decrement y by 1
+Return true	
+
+Solve(board , column , size):
+I := 0
+If column >= size then End;
+Repeat until I < size
+	If Is_Safe(board,I,column,size) = true then :
+		Board[i][column] = queen
+		If column == size -1
+			Add_solution(board):
+			Board[i][column]=empty
+			Return
+		Solve(board , column +1 , size)
+		Board[i][column]=empty
