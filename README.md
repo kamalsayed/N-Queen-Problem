@@ -1,2 +1,2 @@
-# AI-project
+# N-QUEEN PROBLEM
 AI task by Python programming language that we need to do for academic reason to learn Artificial Intelligence search Algorithms
